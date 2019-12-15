@@ -1,4 +1,5 @@
-﻿using Unity.Mathematics;
+﻿using System;
+using Unity.Mathematics;
 using static Unity.Mathematics.math;
 using UnityEngine;
 
@@ -27,8 +28,14 @@ public class MeteorManager : MonoBehaviour
 
     void OnEnable()
     {
-        lastSpawnedAt = 0;
-        random.InitState();
+        var meteors = GetComponentsInChildren<Meteor>();
+        foreach (var meteor in meteors)
+        {
+            Destroy(meteor.gameObject);
+        }
+
+        lastSpawnedAt = Time.time;
+        random.InitState((uint)DateTime.Now.ToBinary());
         SpawnMeteor();
     }
 
