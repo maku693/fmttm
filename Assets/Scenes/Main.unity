@@ -165,29 +165,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RepeatDelay: 0.5
   m_RepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ActionsAsset: {fileID: -944628639613478452, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_PointAction: {fileID: 1054132383583890850, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MoveAction: {fileID: 3710738434707379630, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_SubmitAction: {fileID: 2064916234097673511, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_CancelAction: {fileID: -1967631576421560919, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MiddleClickAction: {fileID: 3279352641294131588, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_RightClickAction: {fileID: 3837173908680883260, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
-  m_TrackedDeviceSelectAction: {fileID: 2559092417903258184, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDeviceSelectAction: {fileID: 2559092417903258184, guid: db3d91d4a8a11434791cdb432d6915b5,
     type: 3}
 --- !u!114 &130090324
 MonoBehaviour:
@@ -396,6 +396,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2be0b2d0a7c0841be845f02906d3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1469423077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8615119499941113715, guid: 95fe2cfc84cf6fc4a9163b62c8153ce7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8615119498608013974}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3a3bf3741d42843aae54dd83e202cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1657163478 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3156455749661176917, guid: 10591a77875d45247a950870249b1473,
@@ -563,6 +575,11 @@ PrefabInstance:
       propertyPath: masawada
       value: 
       objectReference: {fileID: 2589108}
+    - target: {fileID: 2770231345508954723, guid: 1af57a74883b4754f826b94e9ae95c54,
+        type: 3}
+      propertyPath: meteorManager
+      value: 
+      objectReference: {fileID: 1469423077}
     - target: {fileID: 2770231345508954724, guid: 1af57a74883b4754f826b94e9ae95c54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -687,6 +704,11 @@ PrefabInstance:
       propertyPath: masawada
       value: 
       objectReference: {fileID: 2589108}
+    - target: {fileID: 3156455749661176917, guid: 10591a77875d45247a950870249b1473,
+        type: 3}
+      propertyPath: meteorManager
+      value: 
+      objectReference: {fileID: 1469423077}
     - target: {fileID: 3156455749661176918, guid: 10591a77875d45247a950870249b1473,
         type: 3}
       propertyPath: m_Name
@@ -779,6 +801,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Result
       objectReference: {fileID: 0}
+    - target: {fileID: 7009631793186401382, guid: da2845a56fa56d44b8fdb274ee8418d4,
+        type: 3}
+      propertyPath: masawada
+      value: 
+      objectReference: {fileID: 2589108}
     - target: {fileID: 7009631793186401383, guid: da2845a56fa56d44b8fdb274ee8418d4,
         type: 3}
       propertyPath: m_LocalPosition.x

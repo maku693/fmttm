@@ -221,3 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masawada: {fileID: 0}
+  meteorManager: {fileID: 0}
+  ui: {fileID: 3156455749057174288}
+  traveledLengthText: {fileID: 3156455748538050520}

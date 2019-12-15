@@ -26,18 +26,25 @@ class Masawada : MonoBehaviour
     float laneChangeSpeed;
 
     bool isRunning;
-    float traveledLength;
+    public float traveledLength => _traveledLength;
+    float _traveledLength;
     MovingDirection? movingDirection;
     Lane.Position targetLanePosition;
 
-    public event Action onExplode;
+    public Action onExplode;
 
     void OnEnable()
     {
-        traveledLength = 0.0F;
+        _traveledLength = 0.0F;
         isRunning = false;
         movingDirection = null;
         targetLanePosition = Lane.Position.Center;
+
+        var position = transform.position;
+        var targetX = lane.GetTargetXFromPosition(targetLanePosition);
+        position.x = targetX;
+        transform.position = position;
+
         body.SetActive(true);
         thrusterParticle.SetActive(false);
         explodeParticle.SetActive(false);
@@ -48,7 +55,7 @@ class Masawada : MonoBehaviour
         // Pseudo-forward movement
         if (isRunning)
         {
-            traveledLength += speed * Time.deltaTime;
+            _traveledLength += speed * Time.deltaTime;
         }
 
         // Lateral movement
@@ -113,6 +120,7 @@ class Masawada : MonoBehaviour
     {
         onExplode();
         isRunning = false;
+        thrusterParticle.SetActive(false);
         explodeParticle.SetActive(true);
         await UniTask.Delay(3);
         explodeParticle.SetActive(false);
