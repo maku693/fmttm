@@ -1,6 +1,7 @@
 ﻿using System;
 using UniRx.Async;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 class Masawada : MonoBehaviour
@@ -118,8 +119,9 @@ class Masawada : MonoBehaviour
         thrusterParticle.SetActive(true);
     }
 
-    private async void Explode()
+    private async UniTask Explode()
     {
+        Debug.Log(onExplode);
         onExplode();
         isRunning = false;
         thrusterParticle.SetActive(false);

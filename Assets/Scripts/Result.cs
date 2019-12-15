@@ -1,6 +1,7 @@
 using UniRx.Async;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Result : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Result : MonoBehaviour
     [SerializeField]
     Button returnToTitleButton;
     [SerializeField]
-    Text traveledLengthText;
+    TMP_Text traveledLengthText;
 
     void OnEnable()
     {

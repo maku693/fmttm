@@ -1,7 +1,7 @@
 using System;
 using UniRx.Async;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Playing : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class Playing : MonoBehaviour
     [SerializeField]
     GameObject ui;
     [SerializeField]
-    Text traveledLengthText;
+    TMP_Text traveledLengthText;
 
     void OnEnable()
     {

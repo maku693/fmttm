@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using UniRx.Async;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 class Countdown : MonoBehaviour
 {
@@ -10,7 +10,7 @@ class Countdown : MonoBehaviour
     GameObject ui;
 
     [SerializeField]
-    Text countdownText;
+    TMP_Text countdownText;
 
     void OnEnable()
     {
