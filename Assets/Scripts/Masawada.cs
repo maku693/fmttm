@@ -52,20 +52,20 @@ class Masawada : MonoBehaviour
 
     void Update()
     {
+        if (!isRunning) return;
+
         // Pseudo-forward movement
-        if (isRunning)
-        {
-            _traveledLength += speed * Time.deltaTime;
-        }
+        _traveledLength += speed * Time.deltaTime;
 
         // Lateral movement
         var targetX = lane.GetTargetXFromPosition(targetLanePosition);
         var position = transform.position;
         if (movingDirection != null)
         {
-            if (Mathf.Abs(position.x - targetX) > 0.1)
+            var movement = (float)movingDirection * laneChangeSpeed * Time.deltaTime;
+            if (Math.Abs(position.x - targetX) > Math.Abs(movement))
             {
-                position.x += (float)movingDirection * laneChangeSpeed * Time.deltaTime;
+                position.x += movement;
             }
             else
             {
@@ -87,6 +87,8 @@ class Masawada : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+        if (!isRunning) return;
+
         if (movingDirection != null) return;
 
         var v = value.Get<float>();
