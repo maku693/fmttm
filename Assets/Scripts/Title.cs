@@ -1,6 +1,5 @@
 using UniRx.Async;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Title : MonoBehaviour
