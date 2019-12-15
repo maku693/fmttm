@@ -122,7 +122,7 @@ class Masawada : MonoBehaviour
         isRunning = false;
         thrusterParticle.SetActive(false);
         explodeParticle.SetActive(true);
-        await UniTask.Delay(3);
+        await UniTask.Delay(TimeSpan.FromSeconds(3));
         explodeParticle.SetActive(false);
         body.SetActive(false);
     }
