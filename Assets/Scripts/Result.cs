@@ -15,6 +15,8 @@ public class Result : MonoBehaviour
     Button returnToTitleButton;
     [SerializeField]
     TMP_Text traveledLengthText;
+    [SerializeField]
+    string traveledLengthTextFormat;
 
     void OnEnable()
     {
@@ -25,7 +27,7 @@ public class Result : MonoBehaviour
     {
         ui.SetActive(true);
 
-        traveledLengthText.text = masawada.traveledLength.ToString();
+        traveledLengthText.text = masawada.traveledLength.ToString(traveledLengthTextFormat);
         await returnToTitleButton.OnClickAsync();
 
         ui.SetActive(false);

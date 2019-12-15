@@ -14,6 +14,8 @@ public class Playing : MonoBehaviour
     GameObject ui;
     [SerializeField]
     TMP_Text traveledLengthText;
+    [SerializeField]
+    string traveledLengthTextFormat;
 
     void OnEnable()
     {
@@ -22,7 +24,7 @@ public class Playing : MonoBehaviour
 
     void Update()
     {
-        traveledLengthText.text = masawada.traveledLength.ToString();
+        traveledLengthText.text = masawada.traveledLength.ToString(traveledLengthTextFormat);
     }
 
     public async UniTask Run()

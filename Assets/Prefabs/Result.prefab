@@ -321,6 +321,7 @@ MonoBehaviour:
   ui: {fileID: 7009631793325688599}
   returnToTitleButton: {fileID: 1664309240}
   traveledLengthText: {fileID: 5081306538561788192}
+  traveledLengthTextFormat: 0.000m
 --- !u!1 &7009631793234005212
 GameObject:
   m_ObjectHideFlags: 0

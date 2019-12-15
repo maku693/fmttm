@@ -303,3 +303,4 @@ MonoBehaviour:
   meteorManager: {fileID: 0}
   ui: {fileID: 3156455749057174288}
   traveledLengthText: {fileID: 1254198636}
+  traveledLengthTextFormat: 0.000m

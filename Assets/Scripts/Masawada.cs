@@ -47,7 +47,7 @@ class Masawada : MonoBehaviour
         transform.position = position;
 
         body.SetActive(true);
-        thrusterParticle.SetActive(false);
+        thrusterParticle.SetActive(true);
         explodeParticle.SetActive(false);
     }
 
@@ -116,7 +116,6 @@ class Masawada : MonoBehaviour
     public void Launch()
     {
         isRunning = true;
-        thrusterParticle.SetActive(true);
     }
 
     private async UniTask Explode()
