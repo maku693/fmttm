@@ -4805,7 +4805,7 @@ MonoBehaviour:
   body: {fileID: 6954825679540200984}
   thrusterParticle: {fileID: 3482119886909898951}
   explodeParticle: {fileID: 0}
-  speed: 10
+  speed: 100
   laneChangeSpeed: 8
   explosionForce: 500
   explosionRadius: 10
