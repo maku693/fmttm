@@ -43,11 +43,11 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: e69428ab4d044c14fab4c8239215ace9, type: 3}
-    totalSpriteSurfaceArea: 1066170
+    totalSpriteSurfaceArea: 2114746
     bindAsDefault: 1
     storedHash:
       serializedVersion: 2
-      Hash: e79bfd0b3a4de0c10ed10baf109aeb01
+      Hash: d227db2c5e060f3aed716d1cf8141e5e
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 71aff1c021099cc469eb1adaae40fb00, type: 3}
@@ -55,6 +55,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 03817393dfb76cf4e84ef676f204880a, type: 3}
   - {fileID: 21300000, guid: 7ea204c4e418b72499530bb7d5b63907, type: 3}
   - {fileID: 21300000, guid: 34d72a053b3db87469979d623f3ec6d3, type: 3}
+  - {fileID: 21300000, guid: 17d2f97bcedafa6409d9ec86dab450cf, type: 3}
   - {fileID: 21300000, guid: 5b7c8d9efd676f84a81ad39b45cbf797, type: 3}
   - {fileID: 21300000, guid: 36106e3f19f36f14795e1173ed58ae84, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -63,6 +64,7 @@ SpriteAtlas:
   - "\u79FB\u52D5\u3057\u307E\u3057\u305F"
   - "\u3042\u305D\u3073\u304B\u305F"
   - "\u753B\u9762\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u30B9\u30BF\u30FC\u30C8"
+  - nasa-lEBDlbXLEgs-unsplash
   - "masawada\u3055\u3093\u306F"
   - SPACE masawada RUN
   m_Tag: Sprite Atlas

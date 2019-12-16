@@ -32,7 +32,7 @@ class Masawada : MonoBehaviour
     MovingDirection? movingDirection;
     Lane.Position targetLanePosition;
 
-    public Action onExplode;
+    public event Action onExplode;
 
     void OnEnable()
     {
@@ -48,7 +48,7 @@ class Masawada : MonoBehaviour
 
         body.SetActive(true);
         thrusterParticle.SetActive(true);
-        explodeParticle.SetActive(false);
+        // explodeParticle.SetActive(false);
     }
 
     void Update()
@@ -118,15 +118,9 @@ class Masawada : MonoBehaviour
         isRunning = true;
     }
 
-    private async UniTask Explode()
+    private void Explode()
     {
-        Debug.Log(onExplode);
         onExplode();
         isRunning = false;
-        thrusterParticle.SetActive(false);
-        explodeParticle.SetActive(true);
-        await UniTask.Delay(TimeSpan.FromSeconds(3));
-        explodeParticle.SetActive(false);
-        body.SetActive(false);
     }
 }
