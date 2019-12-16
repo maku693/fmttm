@@ -6,8 +6,7 @@ class LinkButton : MonoBehaviour
 {
     [SerializeField]
     Button button;
-    [SerializeField]
-    string url;
+    public string url;
 
     async void Start()
     {

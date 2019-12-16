@@ -1,3 +1,4 @@
+using System;
 using UniRx.Async;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,12 @@ public class Result : MonoBehaviour
     [SerializeField]
     string traveledLengthTextFormat;
 
+
+    [SerializeField]
+    LinkButton tweetButton;
+    [SerializeField]
+    string tweetTextFormat;
+
     void OnEnable()
     {
         ui.SetActive(false);
@@ -27,7 +34,10 @@ public class Result : MonoBehaviour
     {
         ui.SetActive(true);
 
-        traveledLengthText.text = masawada.traveledLength.ToString(traveledLengthTextFormat);
+        var traveledLengthString = masawada.traveledLength.ToString(traveledLengthTextFormat);
+        traveledLengthText.text = traveledLengthString;
+        tweetButton.url = String.Format(tweetTextFormat, traveledLengthString);
+
         await returnToTitleButton.OnClickAsync();
 
         ui.SetActive(false);
