@@ -31,6 +31,8 @@ class Masawada : MonoBehaviour
     [SerializeField]
     float explosionRadius;
 
+    bool isRunning;
+
     public float traveledLength => _traveledLength;
     float _traveledLength;
     MovingDirection? movingDirection;
@@ -43,6 +45,7 @@ class Masawada : MonoBehaviour
 
     void OnEnable()
     {
+        isRunning = false;
         _traveledLength = 0.0F;
         movingDirection = null;
         targetLanePosition = Lane.Position.Center;
@@ -65,6 +68,8 @@ class Masawada : MonoBehaviour
 
     void Update()
     {
+        if (!isRunning) return;
+
         if (onExplode.IsCompleted) return;
 
         // Pseudo-forward movement
@@ -91,6 +96,8 @@ class Masawada : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (!isRunning) return;
+
         if (onExplode.IsCompleted) return;
 
         var meteor = other.GetComponentInParent<Meteor>();
@@ -102,6 +109,8 @@ class Masawada : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+        if (!isRunning) return;
+
         if (onExplode.IsCompleted) return;
 
         if (movingDirection != null) return;
@@ -127,8 +136,15 @@ class Masawada : MonoBehaviour
         targetLanePosition = nextLanePosition;
     }
 
+    public void Launch()
+    {
+        isRunning = true;
+    }
+
     void Explode()
     {
+        isRunning = false;
+
         var rigidbody = GetComponent<Rigidbody>();
         rigidbody.isKinematic = false;
         rigidbody.AddExplosionForce(explosionForce, random.NextFloat3(), explosionRadius);

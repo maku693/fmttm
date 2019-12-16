@@ -32,6 +32,7 @@ public class Playing : MonoBehaviour
 
         meteorManager.gameObject.SetActive(true);
 
+        masawada.Launch();
         await masawada.onExplode;
 
         ui.SetActive(false);
