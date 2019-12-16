@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 3312214006034928804}
-  url: https://example.com
+  url: https://github.com/maku693/fmttm/blob/master/ACKNOWLEDGEMENTS
 --- !u!1 &2770231346382709590
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,4 +713,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 6074167183210878151}
-  url: https://maku693.net
+  url: https://github.com/maku693/fmttm/wiki

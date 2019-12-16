@@ -507,7 +507,7 @@ MonoBehaviour:
   traveledLengthText: {fileID: 5081306538561788192}
   traveledLengthTextFormat: 0.000m
   tweetButton: {fileID: 4553993012235455339}
-  tweetTextFormat: "https://twitter.com/share?text=masawada\u3055\u3093\u306F{0}\u6708\u306B\u8FD1\u3065\u304D\u307E\u3057\u305F\u3002%20&url=https://example.com&hashtags=flymasawadatothemoon"
+  tweetTextFormat: "https://twitter.com/share?text=masawada\u3055\u3093\u306F{0}\u6708\u306B\u8FD1\u3065\u304D\u307E\u3057\u305F\u3002%20&url=https://maku693.github.io/fmttm&hashtags=flymasawadatothemoon"
 --- !u!1 &7009631793234005212
 GameObject:
   m_ObjectHideFlags: 0
