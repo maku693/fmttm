@@ -2,6 +2,7 @@
 using UniRx.Async;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Mathematics;
 
 class Masawada : MonoBehaviour
 {
@@ -25,6 +26,11 @@ class Masawada : MonoBehaviour
     [SerializeField]
     float laneChangeSpeed;
 
+    [SerializeField]
+    float explosionForce;
+    [SerializeField]
+    float explosionRadius;
+
     public float traveledLength => _traveledLength;
     float _traveledLength;
     MovingDirection? movingDirection;
@@ -32,6 +38,8 @@ class Masawada : MonoBehaviour
 
     UniTaskCompletionSource explodeCompletionSource;
     public UniTask onExplode => explodeCompletionSource.Task;
+
+    Unity.Mathematics.Random random = new Unity.Mathematics.Random();
 
     void OnEnable()
     {
@@ -41,10 +49,15 @@ class Masawada : MonoBehaviour
 
         explodeCompletionSource = new UniTaskCompletionSource();
 
+        random.InitState((uint)DateTime.Now.ToBinary());
+
+        var rigidbody = GetComponent<Rigidbody>();
+        rigidbody.isKinematic = true;
+
         var position = transform.position;
         var targetX = lane.GetTargetXFromPosition(targetLanePosition);
-        position.x = targetX;
-        transform.position = position;
+        transform.position = new float3(targetX, 0, 0);
+        transform.rotation = quaternion.identity;
 
         body.SetActive(true);
         thrusterParticle.SetActive(true);
@@ -83,7 +96,7 @@ class Masawada : MonoBehaviour
         var meteor = other.GetComponentInParent<Meteor>();
         if (meteor)
         {
-            explodeCompletionSource.TrySetResult();
+            Explode();
         }
     }
 
@@ -112,5 +125,14 @@ class Masawada : MonoBehaviour
                 break;
         }
         targetLanePosition = nextLanePosition;
+    }
+
+    void Explode()
+    {
+        var rigidbody = GetComponent<Rigidbody>();
+        rigidbody.isKinematic = false;
+        rigidbody.AddExplosionForce(explosionForce, random.NextFloat3(), explosionRadius);
+
+        explodeCompletionSource.TrySetResult();
     }
 }

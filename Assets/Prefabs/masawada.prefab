@@ -4807,6 +4807,8 @@ MonoBehaviour:
   explodeParticle: {fileID: 0}
   speed: 10
   laneChangeSpeed: 8
+  explosionForce: 500
+  explosionRadius: 10
 --- !u!54 &2589109
 Rigidbody:
   m_ObjectHideFlags: 0
