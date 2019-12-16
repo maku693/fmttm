@@ -13,10 +13,12 @@ public class MeteorManager : MonoBehaviour
 
     [SerializeField]
     float spawnInterval;
+    float _spawnInterval;
     [SerializeField]
     float spawnIntervalReductionRate;
     [SerializeField]
     float meteorSpeed;
+    float _meteorSpeed;
     [SerializeField]
     float meteorSpeedIncreaseRate;
     [SerializeField]
@@ -33,7 +35,8 @@ public class MeteorManager : MonoBehaviour
         {
             Destroy(meteor.gameObject);
         }
-
+        _meteorSpeed = meteorSpeed;
+        _spawnInterval = spawnInterval;
         lastSpawnedAt = Time.time;
         random.InitState((uint)DateTime.Now.ToBinary());
         SpawnMeteor();
@@ -47,13 +50,13 @@ public class MeteorManager : MonoBehaviour
     void SpawnMeteor()
     {
         var elapsedFromLastSpawnedAt = Time.time - lastSpawnedAt;
-        if (elapsedFromLastSpawnedAt < spawnInterval) return;
+        if (elapsedFromLastSpawnedAt < _spawnInterval) return;
 
         var transform = this.transform;
         var meteorGameObject = Instantiate(meteorPrefab, transform);
 
         var meteor = meteorGameObject.GetComponent<Meteor>();
-        meteor.speed = meteorSpeed;
+        meteor.speed = _meteorSpeed;
         meteor.rotationAxis = normalize(random.NextFloat3());
         meteor.rotationSpeed = meteorRotationSpeedRange.x + (meteorRotationSpeedRange.x - meteorRotationSpeedRange.y) * random.NextFloat();
 
@@ -62,8 +65,8 @@ public class MeteorManager : MonoBehaviour
         meteorPosition.x = lane.GetTargetXFromPosition(lanePosition);
         meteorGameObject.transform.position = meteorPosition;
 
-        spawnInterval -= spawnInterval * spawnIntervalReductionRate * elapsedFromLastSpawnedAt;
-        meteorSpeed += meteorSpeed * meteorSpeedIncreaseRate * elapsedFromLastSpawnedAt;
+        _spawnInterval -= _spawnInterval * spawnIntervalReductionRate * elapsedFromLastSpawnedAt;
+        _meteorSpeed += _meteorSpeed * meteorSpeedIncreaseRate * elapsedFromLastSpawnedAt;
 
         lastSpawnedAt = Time.time;
     }
