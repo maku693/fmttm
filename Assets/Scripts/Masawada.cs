@@ -1,7 +1,6 @@
 ﻿using System;
 using UniRx.Async;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 class Masawada : MonoBehaviour
@@ -32,14 +31,16 @@ class Masawada : MonoBehaviour
     MovingDirection? movingDirection;
     Lane.Position targetLanePosition;
 
-    public event Action onExplode;
+    UniTaskCompletionSource explodeCompletionSource;
+    public UniTask onExplode => explodeCompletionSource.Task;
 
     void OnEnable()
     {
         _traveledLength = 0.0F;
-        isRunning = false;
         movingDirection = null;
         targetLanePosition = Lane.Position.Center;
+
+        explodeCompletionSource = new UniTaskCompletionSource();
 
         var position = transform.position;
         var targetX = lane.GetTargetXFromPosition(targetLanePosition);
@@ -48,12 +49,11 @@ class Masawada : MonoBehaviour
 
         body.SetActive(true);
         thrusterParticle.SetActive(true);
-        // explodeParticle.SetActive(false);
     }
 
     void Update()
     {
-        if (!isRunning) return;
+        if (onExplode.IsCompleted) return;
 
         // Pseudo-forward movement
         _traveledLength += speed * Time.deltaTime;
@@ -79,16 +79,18 @@ class Masawada : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (onExplode.IsCompleted) return;
+
         var meteor = other.GetComponentInParent<Meteor>();
         if (meteor)
         {
-            Explode();
+            explodeCompletionSource.TrySetResult();
         }
     }
 
     void OnMove(InputValue value)
     {
-        if (!isRunning) return;
+        if (onExplode.IsCompleted) return;
 
         if (movingDirection != null) return;
 
@@ -111,16 +113,5 @@ class Masawada : MonoBehaviour
                 break;
         }
         targetLanePosition = nextLanePosition;
-    }
-
-    public void Launch()
-    {
-        isRunning = true;
-    }
-
-    private void Explode()
-    {
-        onExplode();
-        isRunning = false;
     }
 }

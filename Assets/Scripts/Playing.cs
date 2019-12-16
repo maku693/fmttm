@@ -1,4 +1,3 @@
-using System;
 using UniRx.Async;
 using UnityEngine;
 using TMPro;
@@ -33,19 +32,7 @@ public class Playing : MonoBehaviour
 
         meteorManager.gameObject.SetActive(true);
 
-        masawada.Launch();
-
-        var explode = new UniTaskCompletionSource();
-
-        Action onExplode = null;
-        onExplode = () =>
-        {
-            explode.TrySetResult();
-            masawada.onExplode -= onExplode;
-        };
-        masawada.onExplode += onExplode;
-
-        await explode.Task;
+        await masawada.onExplode;
 
         ui.SetActive(false);
     }
