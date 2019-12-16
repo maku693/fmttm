@@ -25,7 +25,6 @@ class Masawada : MonoBehaviour
     [SerializeField]
     float laneChangeSpeed;
 
-    bool isRunning;
     public float traveledLength => _traveledLength;
     float _traveledLength;
     MovingDirection? movingDirection;
