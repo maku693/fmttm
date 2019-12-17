@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorPrefab: {fileID: 7829320255112711667, guid: bf2862724e9fb924bbd33df7438f6beb,
     type: 3}
+  microStarParticle: {fileID: 0}
   lane: {fileID: 0}
   spawnInterval: 4
   spawnIntervalReductionRate: 0.03

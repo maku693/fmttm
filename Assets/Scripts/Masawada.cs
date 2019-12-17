@@ -18,10 +18,6 @@ class Masawada : MonoBehaviour
     [SerializeField]
     GameObject body;
     [SerializeField]
-    GameObject thrusterParticle;
-    [SerializeField]
-    GameObject explodeParticle;
-    [SerializeField]
     float speed;
     [SerializeField]
     float laneChangeSpeed;
@@ -63,7 +59,6 @@ class Masawada : MonoBehaviour
         transform.rotation = quaternion.identity;
 
         body.SetActive(true);
-        thrusterParticle.SetActive(true);
     }
 
     void Update()

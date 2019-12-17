@@ -9,6 +9,8 @@ public class MeteorManager : MonoBehaviour
     GameObject meteorPrefab;
 
     [SerializeField]
+    ParticleSystem microStarParticle;
+    [SerializeField]
     Lane lane;
 
     [SerializeField]
@@ -67,6 +69,9 @@ public class MeteorManager : MonoBehaviour
 
         _spawnInterval -= _spawnInterval * spawnIntervalReductionRate * elapsedFromLastSpawnedAt;
         _meteorSpeed += _meteorSpeed * meteorSpeedIncreaseRate * elapsedFromLastSpawnedAt;
+
+        var microStarParticleMain = microStarParticle.main;
+        microStarParticleMain.startSpeedMultiplier = _meteorSpeed;
 
         lastSpawnedAt = Time.time;
     }
